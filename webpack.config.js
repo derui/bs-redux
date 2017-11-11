@@ -4,7 +4,7 @@ const glob = require("glob");
 module.exports = {
   // どのファイルをビルドするのかを指定。複数可。
   entry: [
-    './all-test.js'
+    './scripts/all-test.js'
   ],
   // 出力するファイル名と出力先パス
   output: {

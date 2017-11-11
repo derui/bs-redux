@@ -2,7 +2,10 @@
   "name": "bs-redux",
   "version": "0.1.0",
   "sources": [
-    "src"
+    "src", {
+      "dir": "test",
+      "type": "dev"
+    }
   ],
   "package-specs" : {
     "module": "commonjs",
@@ -11,6 +14,7 @@
   "suffix": ".bs.js",
   "generate-merlin": true,
   "bs-dependencies" : [
+    "bs-testing"
       // add your bs-dependencies here 
   ]
 }

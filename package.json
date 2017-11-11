@@ -7,6 +7,7 @@
     "watch": "bsb -make-world -w",
     "bundle:test": "webpack",
     "test": "npm-run-all -s build bundle:test run:test",
+    "run:test": "karma start --single-run --browsers ChromeHeadless karma.conf.js",
     "format": "node ./scripts/format.js"
   },
   "keywords": [
@@ -15,6 +16,7 @@
   "license": "MIT",
   "devDependencies": {
     "bs-platform": "2.0.0",
+    "bs-testing": "git+https://github.com/derui/bs-testing.git",
     "karma": "^1.7.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-mocha": "^1.3.0",
