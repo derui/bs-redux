@@ -8,16 +8,16 @@ module Value = struct
 end
 
 type ('a, 'b) t = {
-    redux: 'b -> 'a -> 'b;
-    to_dict: 'b -> Js.Json.t Js.Dict.t;
-    value: 'b;
-  }
+  redux: 'b -> 'a -> 'b;
+  to_dict: 'b -> Js.Json.t Js.Dict.t;
+  value: 'b;
+}
 
 let empty = {
-    redux = (fun () _ -> ());
-    to_dict = (fun _ -> Js.Dict.empty ());
-    value = ();
-  }
+  redux = (fun () _ -> ());
+  to_dict = (fun _ -> Js.Dict.empty ());
+  value = ();
+}
 
 let field key reducer {redux;to_dict;value} =
   let redux' (x, y) action =

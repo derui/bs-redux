@@ -1,7 +1,7 @@
 type ('a, 'b) t = {
-    redux: 'b -> 'a -> 'b;
-    jsonify: 'b -> Js.Json.t;
-  }
+  redux: 'b -> 'a -> 'b;
+  jsonify: 'b -> Js.Json.t;
+}
 
 let make redux jsonify = {redux; jsonify}
 
