@@ -1,4 +1,5 @@
 type ('a, 'b) t
+(** The type of reducer. *)
 
 val make : ('a -> 'b -> 'a) -> ('a -> Js.Json.t) -> ('b, 'a) t
 (** Make reducer with conversion function and jsonify function *)
