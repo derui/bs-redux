@@ -8,5 +8,5 @@ val apply : ('a, 'b) t -> 'b -> 'a -> 'b
 (** apply reducer with state and action *)
 
 val jsonify : ('a, 'b) t -> 'b -> Js.Json.t
-                                    (** Convert state to json using with reducer's jsonify *)
+(** Convert state to json using with reducer's jsonify *)
 
