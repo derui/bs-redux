@@ -14,7 +14,7 @@
   "suffix": ".bs.js",
   "generate-merlin": true,
   "bs-dependencies" : [
-    "bs-testing", "reason-react"
+    "bs-testing", "reason-react", "bs-webapi"
       // add your bs-dependencies here 
   ]
 }
