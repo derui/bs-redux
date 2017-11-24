@@ -16,14 +16,16 @@ function _wrappedConnect(mapStateToProp, mapDispatchToProp, component) {
 |}]
 (* Use helper function instead of reason-react's createElement function. *)
 
-type 'a t
+type ('a, 'b) t
 
-external createStore: ('a, 'b) Bs_redux_reducer.t -> 'b -> 'b t = "" [@@bs.module "redux"]
+external createStore : ('b -> 'a -> 'b [@bs]) -> 'b -> ('a, 'b) t = "" [@@bs.module "redux"]
 (* Create store with reducer and initial state *)
 
-external getState: 'a t -> 'a = "" [@@bs.get]
+let create reducer state =
+  let reducer' = fun [@bs] state action -> Bs_redux_reducer.apply reducer state action in
+  createStore reducer' state
 
-external _createProvider: 'a t -> ReasonReact.reactElement array -> ReasonReact.reactElement = "createProvider" [@@bs.val]
+external _createProvider: ('a, 'b) t -> ReasonReact.reactElement array -> ReasonReact.reactElement = "createProvider" [@@bs.val]
 
 (** Create the provider element. *)
 let provider store children = _createProvider store children

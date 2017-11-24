@@ -8,6 +8,6 @@ type 'a dispatcher = 'a _dispatcher Js.t
 
 external applyMiddleware:
   ('action dispatcher -> (('action -> 'state) -> ('action -> 'state [@bs]) [@bs]) [@bs])
-  -> (('action, 'state) Bs_redux_reducer.t -> 'state -> 'state Bs_redux_store.t [@bs])
+  -> (('action, 'state) Bs_redux_reducer.t -> 'state -> ('action, 'state) Bs_redux_connector.t [@bs])
   = "" [@@bs.module "redux"]
 
