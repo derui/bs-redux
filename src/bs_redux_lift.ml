@@ -7,10 +7,10 @@ let option default reducer =
     | None -> Some(R.apply reducer default action)
     | Some x -> Some(R.apply reducer x action)
   in
-  let jsonify = function
-    | None -> R.jsonify reducer default
-    | Some x -> R.jsonify reducer x
+  let to_json = function
+    | None -> R.to_json reducer default
+    | Some x -> R.to_json reducer x
   in
 
-  R.make redux jsonify
+  R.make redux to_json
 

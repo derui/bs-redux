@@ -10,8 +10,8 @@ val provider : ('a, 'b) t -> ReasonReact.reactElement array -> ReasonReact.react
 type 'action dispatch = ('action -> unit [@bs])
 
 val connect :
-  ('a -> 'b [@bs]) Js.null ->
-  ('c dispatch -> 'd -> 'e [@bs]) Js.null ->
-  ('b, 'd, unit) ReasonReact.component ->
-  ('b, 'e, unit) ReasonReact.component
+  map_state:('c Js.t -> 'b) ->
+  component:('b, 'd, unit) ReasonReact.component ->
+  ('a, 'b) t ->
+  ('b, 'd, unit) ReasonReact.component
 (* connect provider to component that send state and dispatch transparently. *)

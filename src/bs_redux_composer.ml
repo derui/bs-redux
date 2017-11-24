@@ -24,15 +24,15 @@ let field key reducer {redux;to_dict;value} =
     (Bs_redux_reducer.apply reducer x action, redux y action) in
   let to_dict' (x, y) =
     let dict = to_dict y in
-    let () = Js.Dict.set dict key (Bs_redux_reducer.jsonify reducer x) in
+    let () = Js.Dict.set dict key (Bs_redux_reducer.to_json reducer x) in
     dict
   in
   let value = (None, value) in
   {redux = redux';to_dict = to_dict'; value}
 
 let reducer {redux;to_dict;} =
-  let jsonify state = Js.Json.object_ @@ to_dict state in
-  Bs_redux_reducer.make redux jsonify
+  let to_json state = Js.Json.object_ @@ to_dict state in
+  Bs_redux_reducer.make redux to_json
 
 let compose f =
   let {value} as obj = f empty in
