@@ -1,5 +1,5 @@
 {
-  "name": "bs-redux",
+  "name": "bs-rillet",
   "version": "0.1.0",
   "scripts": {
     "clean": "bsb -clean-world",
@@ -15,7 +15,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "bs-platform": "2.0.0",
+    "bs-platform": "2.1.0",
     "bs-testing": "git+https://github.com/derui/bs-testing.git",
     "bs-webapi": "^0.7.0",
     "karma": "^1.7.1",
